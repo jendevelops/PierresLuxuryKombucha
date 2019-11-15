@@ -4,6 +4,7 @@ const {
 } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
 
   entry: [
@@ -78,7 +79,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'template.ejs',
       appMountId: 'react-app-root',
-      title: 'React Help Queue',
+      title: 'Pierre\'s Luxury Kombucha',
       filename: resolve(__dirname, "build", "index.html"),
     }),
   ]
