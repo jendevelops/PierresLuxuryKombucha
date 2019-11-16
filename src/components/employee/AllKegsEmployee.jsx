@@ -1,14 +1,5 @@
 import {React} from 'react';
-
-
-// props needed: name, flavor, price, pintsLeft, key
-function AllKegsEmployee(props){
-  return(
-    <div id="AllKegsEmployee{props.id}">
-
-    </div>
-  );
-}
+import {EmployeeKeg} from './EmployeeKeg';
 
 let keggerinos = [
   {
@@ -46,6 +37,23 @@ let keggerinos = [
     pintsLeft: 15,
     description: 'In partnership with Pierre\'s close friend Jaqueline of the world renowned pop up shop Bagels Reimagined, this kombucha drink is where have none have gone before. With dairy hints and a heavy grain base, this kombucha will leave your mouth tasting like essence of the reimagined butter bagel with whole fish.'
   }
-]
+];
+// props needed: name, flavor, price, pintsLeft, key
+function AllKegsEmployee(){
+  return(
+    <div id="AllKegsEmployee">
+      keggerinos.map((keg, index) =>
+      <EmployeeKeg 
+        name={keg.name}
+        flavor = {keg.flavor}
+        price = {keg.price}
+        pintsLeft = {kegs.pintsLeft}
+        key={index} />
+      );
+    </div>
+  );
+}
+
+
 
 export default AllKegsEmployee;
