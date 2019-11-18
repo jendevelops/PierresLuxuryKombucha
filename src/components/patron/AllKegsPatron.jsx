@@ -1,6 +1,6 @@
 import React from 'react';
 import PatronKeg from './PatronKeg';
-import keggerinos from './../Keggerinos';
+import keggerinos from '../../data/Keggerinos';
 
 // props needed: name, flavor, price, pintsLeft, key
 function AllKegsPatron() {

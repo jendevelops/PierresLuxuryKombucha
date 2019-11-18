@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeeKeg from './EmployeeKeg';
-import keggerinos from './../Keggerinos';
+import keggerinos from '../../data/Keggerinos';
 
 
 // props needed: name, flavor, price, pintsLeft, key
