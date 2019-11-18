@@ -19,7 +19,7 @@ This application is a React web application that incorporates two views: a patro
 - As a patron, I want to use the alcohol content property to display stronger beers differently than weaker beers.
 
 ## Client Side Routing and Component Design
-
+![Routing Component Scheme](src/img/Components.png)
 
 ## Setup/Installation Requirements
 
