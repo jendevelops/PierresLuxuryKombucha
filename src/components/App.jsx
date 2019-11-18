@@ -1,13 +1,15 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {AllKegsEmployee} from './employee/AllKegsEmployee';
-import {AllKegsPatron} from './patron/AllKegsPatron';
+import AllKegsEmployee from './employee/AllKegsEmployee';
+import AllKegsPatron from './patron/AllKegsPatron';
 import {NewKegControl} from './employee/NewKegControl';
 import {EditKegControl} from './employee/EditKegControl';
+import Header from './Header';
 
 function App() {
   return (
     <div>
+      <Header />
       <Switch>
         <Route exact path='/' component={AllKegsPatron} />
         <Route exact path='/employee' component={AllKegsEmployee} />
