@@ -3,11 +3,11 @@ import React from 'react';
 function PatronKeg(props) {
   return (
     <div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{props.name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{props.flavor} | {props.price}</h6>
-          <p class="card-text">{props.description}</p>
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{props.name}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{props.flavor} | ${props.price.toFixed(2)}</h6>
+          <p className="card-text">{props.description}</p>
         </div>
       </div>
     </div>
