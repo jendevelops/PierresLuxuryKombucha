@@ -12,9 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "css-loader": "^3.2.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.0.0",
+    "style-loader": "^1.0.0",
     "styled-jsx": "^3.2.4"
   },
   "devDependencies": {
@@ -25,7 +27,7 @@
     "eslint": "^4.13.1",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-react": "^7.10.0",
-    "file-loader": "^1.1.6",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^2.29.0",
     "react-hot-loader": "^3.0.0-beta.7",
     "url-loader": "^0.6.2",

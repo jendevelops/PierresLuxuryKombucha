@@ -33,7 +33,15 @@ module.exports = {
   },
 
   module: {
-    rules: [{
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
         test: /\.jsx?$/,
         enforce: "pre",
         loader: "eslint-loader",
@@ -61,7 +69,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|gif|jp(e*)g|svg)$/,
+        test: /\.(png|gif|jpg|jpeg|svg)$/,
         use: {
           loader: 'url-loader',
           options: {
