@@ -18,11 +18,20 @@ body {
   color: rgba(205, 204, 205);
 }
 
-/* .logo{
-  color: rgb(205, 204, 205);
-} */
+.logo{
+  font-family: 'Homemade Apple',
+  cursive;
+}
 
 .blockquote-footer{
     float:right;
      color: rgba(205, 204, 205);
+}
+
+form{
+  text-align: left;
+}
+
+.right{
+  float: right; 
 }
