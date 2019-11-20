@@ -10,7 +10,6 @@ import splashPage from './SplashPage';
 function App() {
   return (
     <div>
-      <Header />
       <Switch>
         <Route exact path='/' component={splashPage} />
         <Route exact path='/patron' component={AllKegsPatron} />
