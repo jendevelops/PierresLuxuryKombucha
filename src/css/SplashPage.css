@@ -1,7 +1,28 @@
-html {
+body {
   background: url(../img/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+.wrapper{
+  text-align: center;
+  padding-top: 10%;
+}
+.splash{
+  text-align: center;
+  padding: 2%;
+  display: inline-block;
+  background-color: rgba(133, 72, 54, 0.5);
+  border-radius: 5%;
+  color: rgba(205, 204, 205);
+}
+
+/* .logo{
+  color: rgb(205, 204, 205);
+} */
+
+.blockquote-footer{
+    float:right;
+     color: rgba(205, 204, 205);
 }
