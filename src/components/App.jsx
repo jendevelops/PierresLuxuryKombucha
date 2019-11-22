@@ -81,7 +81,7 @@ class App extends React.Component {
     let that = this;
     credentialList.foreach((credential) => {
       if (credential.userName === userName && credential.password === password) {
-        let loggedIn = { loginState: true, currentUser:""};
+        let loggedIn = { loginState: true, currentUser: "" };
         loggedIn["currentUser"] = userName;
         that.setState(loggedIn);
       }
@@ -95,7 +95,7 @@ class App extends React.Component {
       let keg = kegList[kegId];
       keg.pintsLeft--;
 
-      this.setState({ kegsList: kegList });
+      this.setState({ kegs: kegList });
     }
   }
 
@@ -103,7 +103,7 @@ class App extends React.Component {
     if (this.state.loginState) {
       const kegList = this.state.kegs.slice();
       kegList[kegId] = kegObject;
-      this.setState({ kegsList: kegList });
+      this.setState({ kegs: kegList });
     }
   }
 
@@ -111,7 +111,7 @@ class App extends React.Component {
     if (this.state.loginState) {
       const kegList = this.state.kegs.slice();
       kegList.push(kegObject);
-      this.setState({ kegsList: kegList });
+      this.setState({ kegs: kegList });
     }
   }
 
@@ -134,20 +134,32 @@ class App extends React.Component {
             render={() => {
               <AllKegsEmployee
                 kegs={this.state.kegs}
+                loginState={this.state.loginState}/>
+            }} />
+
+          <Route exact path='/employee/login'
+            render={() => {
+              <EmployeeLoginController
                 loginState={this.state.loginState}
-                onEditKeg={this.handleEditKeg}
+                currentUser={this.state.currentUser}
+                onLoginClick={this.handleLoginClick} />
+            }} />
+
+          <Route path='/keg/new'
+            render={() => {
+              <NewKegControl
+                kegs={this.state.kegs}
+                loginState={this.state.loginState}
                 onAddNewKeg={this.handleAddNewKeg} />
             }} />
 
-          <Route exact path='/employee/login' 
+          <Route path='/keg/edit/'
             render={() => {
-              <EmployeeLoginController
-                loginState={this.loginState}
-                currentUser={this.}
-
-            })} />
-          <Route path='/keg/new' component={NewKegControl} />
-          <Route path='/keg/edit/' component={EditKegControl} />
+              <EditKegControl
+                kegs={this.state.kegs}
+                loginState={this.state.loginState}
+                onEditKeg={this.handleEditKeg} />
+            }} />
         </Switch>
       </div>
     );
