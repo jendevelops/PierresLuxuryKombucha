@@ -57,19 +57,31 @@ class App extends React.Component {
       ],
       loginCredential:[
         {
-          userName: "johnny",
-          password: "eyeH8p13rr3"
+          userName: 'johnny',
+          password: 'eyeH8p13rr3'
         },
         {
-          userName: "pierre",
-          password: "admin"
+          userName: 'pierre',
+          password: 'admin'
         }
       ],
       loginState: false
     };
+    this.handleLoginClick = this.handleLoginClick.bind(this);
   }
-
- 
+  
+  handleLoginClick(credentialObject) {
+    let credentialList = this.state.loginCredential.slice();
+    const userName = credentialObject.userName;
+    const password = credentialObject.password;
+    let that = this;
+    credentialList.foreach((credential) =>{
+      if (credential.userName === userName && credential.password === password) {
+        let loggedIn = { loginState: true };
+        that.setState(loggedIn);
+      }
+    });
+  }
 
 
   render() {
