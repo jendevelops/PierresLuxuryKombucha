@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EmployeeLogin()
+function EmployeeLoginForm()
 {
   return(
     <div className="wrapper">
@@ -24,4 +24,4 @@ function EmployeeLogin()
 }
 
 
-export default EmployeeLogin;
+export default EmployeeLoginForm;
