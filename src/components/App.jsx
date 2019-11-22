@@ -68,6 +68,7 @@ class App extends React.Component {
       loginState: false
     };
     this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleDecrementPint = this.handleDecrementPint.bind(this);
   }
   
   handleLoginClick(credentialObject) {
@@ -81,6 +82,18 @@ class App extends React.Component {
         that.setState(loggedIn);
       }
     });
+  }
+
+  handleDecrementPint(kegId){
+    if(this.state.loginState)
+    {
+      const kegList = this.state.kegs.slice();
+
+      let keg = kegList[kegId];
+      keg.pintsLeft--;
+
+      this.setState({kegsList: kegList});
+    }
   }
 
 
