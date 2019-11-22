@@ -69,6 +69,8 @@ class App extends React.Component {
     };
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleDecrementPint = this.handleDecrementPint.bind(this);
+    this.handleEditKeg = this.handleLoginClick.bind(this);
+    this.handleAddNewKeg = this.handleAddNewKeg.bind(this);
   }
   
   handleLoginClick(credentialObject) {
@@ -93,6 +95,22 @@ class App extends React.Component {
       keg.pintsLeft--;
 
       this.setState({kegsList: kegList});
+    }
+  }
+
+  handleEditKeg(kegId,kegObject){
+    if (this.state.loginState) {
+      const kegList = this.state.kegs.slice();
+      kegList[kegId] = kegObject;
+      this.setState({ kegsList: kegList });
+    }
+  }
+
+  handleAddNewKeg(kegObject){
+    if(this.state.loginState){
+      const kegList = this.state.kegs.slice();
+      kegList.push(kegObject);
+      this.setState({ kegsList: kegList });
     }
   }
 
