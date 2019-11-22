@@ -1,9 +1,9 @@
 import React from 'react';
 
-function EditKegForm(props){
-  return(
+function EditKegForm(props) {
+  return (
     <div className='wrapper'>
-        <div className='splash'>
+      <div className='splash'>
         <h1>Edit Keg</h1>
         <form action="#/employee">
           <tr>
