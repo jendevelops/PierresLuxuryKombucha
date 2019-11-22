@@ -10,9 +10,9 @@ import EmployeeLogin from './employee/EmployeeLogin';
 
 class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       kegs: [
         {
           name: 'Peach Fuzzies',
@@ -55,7 +55,7 @@ class App extends React.Component {
           img: 'bagel.jpg'
         }
       ],
-      loginCredential:[
+      loginCredential: [
         {
           userName: 'johnny',
           password: 'eyeH8p13rr3'
@@ -65,40 +65,41 @@ class App extends React.Component {
           password: 'admin'
         }
       ],
-      loginState: false
+      loginState: false,
+      currentUser: ""
     };
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleDecrementPint = this.handleDecrementPint.bind(this);
     this.handleEditKeg = this.handleLoginClick.bind(this);
     this.handleAddNewKeg = this.handleAddNewKeg.bind(this);
   }
-  
+
   handleLoginClick(credentialObject) {
     let credentialList = this.state.loginCredential.slice();
     const userName = credentialObject.userName;
     const password = credentialObject.password;
     let that = this;
-    credentialList.foreach((credential) =>{
+    credentialList.foreach((credential) => {
       if (credential.userName === userName && credential.password === password) {
-        let loggedIn = { loginState: true };
+        let loggedIn = { loginState: true, currentUser:""};
+        loggedIn["currentUser"] = userName;
         that.setState(loggedIn);
       }
     });
   }
 
-  handleDecrementPint(kegId){
-    if(this.state.loginState)
-    {
+  handleDecrementPint(kegId) {
+    if (this.state.loginState) {
       const kegList = this.state.kegs.slice();
 
       let keg = kegList[kegId];
       keg.pintsLeft--;
 
-      this.setState({kegsList: kegList});
+      this.setState({ kegsList: kegList });
     }
   }
 
-  handleEditKeg(kegId,kegObject){
+  handleEditKeg(kegId, kegObject) {
     if (this.state.loginState) {
       const kegList = this.state.kegs.slice();
       kegList[kegId] = kegObject;
@@ -106,8 +107,8 @@ class App extends React.Component {
     }
   }
 
-  handleAddNewKeg(kegObject){
-    if(this.state.loginState){
+  handleAddNewKeg(kegObject) {
+    if (this.state.loginState) {
       const kegList = this.state.kegs.slice();
       kegList.push(kegObject);
       this.setState({ kegsList: kegList });
@@ -120,10 +121,31 @@ class App extends React.Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path='/' component={splashPage} />
-          <Route exact path='/menu' component={AllKegsPatron} />
-          <Route exact path='/employee' component={AllKegsEmployee} />
-          <Route exact path='/employee/login' component={EmployeeLogin} />
+          <Route exact path='/'
+            component={splashPage} />
+
+          <Route exact path='/menu'
+            render={() =>
+              <AllKegsPatron
+                kegs={this.state.kegs}
+                onDecrementPint={this.handleDecrementPint} />} />
+
+          <Route exact path='/kegs'
+            render={() => {
+              <AllKegsEmployee
+                kegs={this.state.kegs}
+                loginState={this.state.loginState}
+                onEditKeg={this.handleEditKeg}
+                onAddNewKeg={this.handleAddNewKeg} />
+            }} />
+
+          <Route exact path='/employee/login' 
+            render={() => {
+              <EmployeeLoginController
+                loginState={this.loginState}
+                currentUser={this.}
+
+            })} />
           <Route path='/keg/new' component={NewKegControl} />
           <Route path='/keg/edit/' component={EditKegControl} />
         </Switch>
