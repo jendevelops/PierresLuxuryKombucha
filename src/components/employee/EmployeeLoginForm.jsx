@@ -3,20 +3,20 @@ import React from 'react';
 function EmployeeLoginForm()
 {
   return(
-    <div className="wrapper">
-      <div className='splash block'>
+    <div class="wrapper">
+      <div class='splash block'>
         <h1>Login</h1>
-        <form action="#">
+        <form action="#/employee/login">
           <tr>
-            <th><label htmlFor="Email">Email</label></th>
+            <th><label for="Email">Email</label></th>
             <th><input type="text" /></th>
           </tr>
           <tr>
-            <th><label htmlFor="Password">Password</label></th>
+            <th><label for="Password">Password</label></th>
             <th><input type='password' /></th>
           </tr>
           
-          <button type='submit' className='btn btn-light right'>Login</button>
+          <button type='submit' class='btn btn-light right'>Login</button>
         </form>
       </div>
     </div>

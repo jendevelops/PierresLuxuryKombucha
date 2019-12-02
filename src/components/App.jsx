@@ -7,6 +7,8 @@ import EditKegControl from './employee/EditKegControl';
 import Header from './Header';
 import splashPage from './SplashPage';
 import EmployeeLoginControl from './employee/EmployeeLoginControl';
+import EmployeeLoginForm from './employee/EmployeeLoginForm';
+import EmployeeKeg from './employee/EmployeeKeg';
 
 class App extends React.Component {
 
@@ -66,7 +68,7 @@ class App extends React.Component {
         }
       ],
       loginState: false,
-      currentUser: ''
+      currentUser: 'johnny'
     };
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleDecrementPint = this.handleDecrementPint.bind(this);
@@ -76,6 +78,7 @@ class App extends React.Component {
   }
 
   handleLoginClick(credentialObject) {
+    event.preventDefault();
     let credentialList = this.state.loginCredential.slice();
     const userName = credentialObject.userName;
     const password = credentialObject.password;
@@ -142,12 +145,13 @@ class App extends React.Component {
             }} />
 
           <Route exact path='/employee/login'
-            render={() => {
+            render={() => (
               <EmployeeLoginControl
                 loginState={this.state.loginState}
                 currentUser={this.state.currentUser}
-                onLoginClick={this.handleLoginClick} />;
-            }} />
+                onLoginClick={this.handleLoginClick} />
+            )} />
+          {/* <Route exact path='/employee/login' render={() => (<EmployeeLoginForm />)} /> */}
 
           <Route path='/keg/new'
             render={() => {
